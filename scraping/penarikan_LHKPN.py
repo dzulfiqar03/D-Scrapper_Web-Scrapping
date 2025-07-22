@@ -30,21 +30,15 @@ def penarikan_lhkpn():
         options.add_argument("--headless")  # Jalankan tanpa GUI
         options.add_argument("--no-sandbox")
         options.add_argument("--disable-dev-shm-usage")
-        options.add_argument("--disable-gpu")
-        options.add_argument("--disable-extensions")
-        options.add_argument("--remote-debugging-port=9222")
-        options.add_argument("--window-size=1920,1080")
-
         prefs = {
-            "download.default_directory": download_dir,
-            "download.prompt_for_download": False,
-            "directory_upgrade": True,
-            "safebrowsing.enabled": True
+        "download.default_directory": download_dir,
+        "download.prompt_for_download": False,
+        "directory_upgrade": True,
+        "safebrowsing.enabled": True
         }
         options.add_experimental_option("prefs", prefs)
 
-        # === 3. Inisialisasi Driver ===
-        driver = webdriver.Chrome(options=options)
+        driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
 
         # === 4. Buka Halaman Tableau ===
         driver.get("https://elhkpn.kpk.go.id/portal/user/petakepatuhan")
