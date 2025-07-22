@@ -27,7 +27,7 @@ def penarikan_lhkpn():
 
         # === 2. Setup Chrome Options ===
         options = webdriver.ChromeOptions()
-        options.add_argument("--headless=new")  # Jalankan tanpa GUI
+        options.add_argument("--headless")  # Jalankan tanpa GUI
         options.add_argument("--no-sandbox")
         options.add_argument("--disable-dev-shm-usage")
         prefs = {

@@ -26,7 +26,7 @@ def penarikan_minerba():
         output_path = os.path.join(download_dir, "harga_acuan_minerba.xlsx")
 
         options = webdriver.ChromeOptions()
-        options.add_argument("--headless=new")  # Jalankan tanpa GUI
+        options.add_argument("--headless")  # Jalankan tanpa GUI
         options.add_argument("--no-sandbox")
         options.add_argument("--disable-dev-shm-usage")
         prefs = {
