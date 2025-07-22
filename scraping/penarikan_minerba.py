@@ -37,7 +37,7 @@ def penarikan_minerba():
         }
         options.add_experimental_option("prefs", prefs)
 
-        driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
+        driver = webdriver.Chrome(options=options)
         wait = WebDriverWait(driver, 30)
 
         # Buka halaman harga acuan

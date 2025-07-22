@@ -33,7 +33,7 @@ def penarikan_igracias():
     }
     options.add_experimental_option("prefs", prefs)
 
-    driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
+    driver = webdriver.Chrome(options=options)
     wait = WebDriverWait(driver, 30)
 
     # === 4. Buka Halaman iGracias ===
