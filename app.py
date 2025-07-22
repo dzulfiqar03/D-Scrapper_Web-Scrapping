@@ -28,7 +28,7 @@ def run_script():
 
     if errors:
         hasil_log = "\n".join(errors)
-        return render_template("app.html", hasil=hasil_log)
+        return render_template("index.html", hasil=hasil_log)
 
     else:
         try:
@@ -47,7 +47,7 @@ def run_script():
         # Simpan hasil ke MySQL
         simpan_ke_mysql(nama_lengkap, company)
 
-        return render_template("app.html", hasil=hasil_log, nama_lengkap=nama_lengkap)
+        return render_template("index.html", hasil=hasil_log, nama_lengkap=nama_lengkap)
 
 if __name__ == "__main__":
     app.run(debug=True)
