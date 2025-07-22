@@ -1,7 +1,9 @@
 import { defineConfig } from 'vite'
-import tailwindcss from '@tailwindcss/vite'
+
 export default defineConfig({
-  plugins: [
-    tailwindcss(),
-  ],
+  root: 'templates', // Direktori tempat file index.html berada
+  build: {
+    outDir: 'dist', // Folder hasil build
+    emptyOutDir: true,
+  },
 })
