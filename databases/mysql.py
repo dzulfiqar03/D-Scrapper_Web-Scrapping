@@ -3,13 +3,13 @@ import mysql.connector
 def simpan_ke_mysql(nama_lengkap, company):
     try:
         conn = mysql.connector.connect(
-            host="localhost",        # Ganti sesuai server MySQL kamu
-            user="root",             # Ganti sesuai user MySQL kamu
+            host="dscrapper.mysql.pythonanywhere-services.com",        # Ganti sesuai server MySQL kamu
+            user="dscrapper",             # Ganti sesuai user MySQL kamu
             password="",   # Ganti dengan password usermu
-            database="db_dscrapper"  # Nama database
+            database="dscrapper$default"  # Nama database
         )
         cursor = conn.cursor()
-        sql = "INSERT INTO db_dscrapper (nama_lengkap, company) VALUES (%s, %s)"
+        sql = "INSERT INTO db_dscrapper(nama_lengkap, company) VALUES (%s, %s)"
         val = (nama_lengkap, company)
         cursor.execute(sql, val)
         conn.commit()
