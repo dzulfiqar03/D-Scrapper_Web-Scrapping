@@ -27,8 +27,14 @@ def penarikan_lhkpn():
 
         # === 2. Setup Chrome Options ===
         options = webdriver.ChromeOptions()
-        options.add_argument("--start-maximized")
-        options.add_argument("--disable-notifications")
+        options.add_argument("--headless")  # Jalankan tanpa GUI
+        options.add_argument("--no-sandbox")
+        options.add_argument("--disable-dev-shm-usage")
+        options.add_argument("--disable-gpu")
+        options.add_argument("--disable-extensions")
+        options.add_argument("--remote-debugging-port=9222")
+        options.add_argument("--window-size=1920,1080")
+
         prefs = {
             "download.default_directory": download_dir,
             "download.prompt_for_download": False,
