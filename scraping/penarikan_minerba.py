@@ -5,6 +5,7 @@ import time
 import pandas as pd
 import os
 from selenium.webdriver.safari.options import Options
+from selenium.webdriver.support.ui import WebDriverWait
 import io
 import sys
 
@@ -13,8 +14,30 @@ def penarikan_minerba():
     sys.stdout = output_log  # Redirect stdout
     
     try:
-        # Jalankan Safari
-        driver = webdriver.Safari()
+        download_dir = os.path.join(os.path.expanduser("~"), "Downloads")
+        if not os.path.exists(download_dir):
+            os.makedirs(download_dir)
+            
+        download_dir2 = os.path.join(os.getcwd(), "Downloads/Minerba")
+        if not os.path.exists(download_dir2):
+            os.makedirs(download_dir2)
+
+        output_path = os.path.join(download_dir, "harga_acuan_minerba.xlsx")
+
+        options = webdriver.ChromeOptions()
+        options.add_argument("--start-maximized")
+        options.add_argument("--disable-notifications")
+        prefs = {
+        "download.default_directory": download_dir,
+        "download.prompt_for_download": False,
+        "directory_upgrade": True,
+        "safebrowsing.enabled": True
+        }
+        options.add_experimental_option("prefs", prefs)
+
+        # === 3. Inisialisasi Driver ===
+        driver = webdriver.Chrome(options=options)
+        wait = WebDriverWait(driver, 30)
 
         # Buka halaman harga acuan
         driver.get('https://www.minerba.esdm.go.id/harga_acuan')
